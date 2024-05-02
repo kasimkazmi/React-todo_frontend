@@ -12,13 +12,13 @@ export default function TodoList({ todo }) {
     <>
       <div className="flex w-full items-center border-black/10 px-3 py-2 gap-x-3 shadow-l">
         <input
-        checked={todo.completed}
+          checked={todo.completed}
           onChange={() => toggleTodo(todo.id)}
           type="checkbox"
           className="cursor-pointer whitespace-pre-wrap size-6 scale-150 overflow-wrap-break-word"
         />
         <input
-        ref={inputRef}
+          ref={inputRef}
           type="text"
           onChange={(e) => {
             if (inputRef?.current?.value.length < 3) deleteTodo(todo.id);
@@ -33,8 +33,9 @@ export default function TodoList({ todo }) {
         <button
           onClick={() => {
             if (todo.completed) return;
-            isEdit ? updatetodo(isUpdate, todo.id) ?? setIsedit(false):
-            setIsedit(!isEdit);
+            isEdit
+              ? updatetodo(isUpdate, todo.id) ?? setIsedit(false)
+              : setIsedit(!isEdit);
           }}
           className="text-xl bg-inherit hover:brightness-75 p-2 text-green-500"
         >
